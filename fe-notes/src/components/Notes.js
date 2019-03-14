@@ -15,7 +15,7 @@ const masonryOptions = {
 
 const Notes = props => {
 
-    console.log('All of the Notes props:  ',props)
+    // console.log('All of the Notes props:  ',props)
 
     const childElements = props.notes.map(note => (
         <Fragment key={note.id}>
@@ -25,17 +25,22 @@ const Notes = props => {
 
     return (
         <Fragment>
-            <h3 className='cltgray'>Your Notes:</h3>
-            <Masonry
-                className={'note-gallery'} // default ''
-                elementType={'ul'} // default 'div'
-                options={masonryOptions} // default {}
-                disableImagesLoaded={false} // default false
-                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-            >
-                {childElements}
-            </Masonry>
-            
+            <section className='note-container'>
+                
+
+                <h3 className='cltgray'>Your Notes:</h3>
+                <Masonry
+                    className={'note-gallery'} // default ''
+                    elementType={'ul'} // default 'div'
+                    options={masonryOptions} // default {}
+                    disableImagesLoaded={false} // default false
+                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                >
+                    {childElements}
+                </Masonry>
+
+
+            </section>            
         </Fragment>
     )
 }

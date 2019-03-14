@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 const Note = props => {
 
-    console.log('Note, single note props:  ',props)
+    // console.log('Note, single note props:  ',props)
     return (
         <Fragment>
 
