@@ -10,7 +10,10 @@ const initialState = {
 function reducer(state, action) {
     switch (action.type) {
         case 'GET_NOTES':
-            return { ...state, notes: action.payload };
+            return { 
+                ...state, 
+                notes: action.payload 
+            };
         default:
             return state;
     }

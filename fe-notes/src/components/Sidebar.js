@@ -1,21 +1,31 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Sidebar = () => {
 
     return (
         <Fragment>
+            
+                <nav className=''>
 
-            <nav className=''>
-                <h1>Lambda Notes</h1>
 
-                <button className='btn-primary'>
-                    View Your Notes
-                </button>
-                <button className='btn-primary'>
-                    + Create New Note
-                </button>
+                    <Link to='/welcome'><h1>Lambda Notes</h1></Link>
 
-            </nav>
+                    <Link to='/'>
+                        <button className='btn-primary'>
+                            View Your Notes
+                        </button>
+                    </Link>
+                    
+                    <Link to='/new-note' >
+                        <button className='btn-primary'>
+                            + Create New Note
+                        </button>
+                    </Link>
+
+                   
+                </nav>
 
         </Fragment>
     )

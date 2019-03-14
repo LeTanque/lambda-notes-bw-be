@@ -548,6 +548,9 @@ button {
     max-width: 200px;
   }
 }
+#root .App nav a {
+  color: #575757;
+}
 #root .App .note-container {
   background-color: #f0f0f0;
   position: relative;

@@ -9,10 +9,8 @@ const Note = props => {
             <section className='note-card'>
                 <div className='note'>
                     <h5>{props.note.title}</h5>
-                    <span className='italic'>ID: {props.note.id}</span>
                     <p>
-                        {props.note.note}<br />
-                        
+                        {props.note.textBody}<br />
                     </p>
                 </div>
             </section>

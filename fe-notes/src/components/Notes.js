@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import Masonry from 'react-masonry-component';
+import { connect } from 'react-redux';
+
+import { getNotes } from '../stateTree/actions';
 
 import Note from './Note';
 
@@ -12,13 +15,22 @@ const masonryOptions = {
 };
 
 
-
 const Notes = props => {
 
-    // console.log('All of the Notes props:  ',props)
+
+    React.useEffect(() => {
+        if (props.newNote) {
+            return props.getNotes();
+        }
+        if (props.notes.length === 0) {
+            return props.getNotes();
+        }        
+    })
+    
+    console.log('All of the Notes props:  ',props)
 
     const childElements = props.notes.map(note => (
-        <Fragment key={note.id}>
+        <Fragment key={note._id}>
             <Note note={note} />
         </Fragment>
     ))
@@ -45,4 +57,12 @@ const Notes = props => {
     )
 }
 
-export default Notes
+const mapStateToProps = state => ({
+    ...state
+})
+  
+export default connect(
+    mapStateToProps, 
+    { getNotes }
+)(Notes);
+  
