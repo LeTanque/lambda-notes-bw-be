@@ -354,13 +354,13 @@ table {
   max-width: 100%;
 }
 thead th {
-  border-bottom: 2px solid #dedede;
+  border-bottom: 2px solid #f0f0f0;
 }
 tfoot th {
-  border-top: 2px solid #dedede;
+  border-top: 2px solid #f0f0f0;
 }
 td {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #f0f0f0;
 }
 th,
 td {
@@ -448,6 +448,9 @@ code {
 .cred {
   color: #dd1111;
 }
+.cdark {
+  color: #232323;
+}
 .cblack {
   color: #000000;
 }
@@ -513,16 +516,23 @@ a:hover {
   color: #9a9a9a;
 }
 body {
-  color: #232323;
+  color: #575757;
   font-size: 1.6rem;
 }
 button {
   border: 1px solid #9a9a9a;
+  font-weight: bold;
+  margin: 10px auto;
 }
 #root .App {
   padding-left: 0;
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 1fr 2fr;
+}
+@media (min-width: 821px) {
+  #root .App {
+    grid-template-columns: 275px 1fr;
+  }
 }
 #root .App nav {
   background-color: #bdbdbd;
@@ -530,7 +540,46 @@ button {
   border-right: 1px solid #9a9a9a;
   position: sticky;
   height: 100vh;
+  max-width: 275px;
+  padding: 20px;
+}
+@media (min-width: 0px) and (max-width: 600px) {
+  #root .App nav {
+    max-width: 200px;
+  }
 }
 #root .App .note-container {
+  background-color: #f0f0f0;
+  position: relative;
   padding: 60px 20px 20px 20px;
+  max-width: 1100px;
+}
+.note-gallery {
+  display: grid;
+  margin-top: 20px;
+}
+.note-gallery .note-card {
+  background-color: #ffffff;
+  border: 1px solid #bdbdbd;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 48%;
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+  text-overflow: ellipsis;
+}
+.note-gallery .note-card:hover {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+@media (min-width: 821px) {
+  .note-gallery .note-card {
+    width: 22%;
+  }
+}
+@media (min-width: 0px) and (max-width: 600px) {
+  .note-gallery .note-card {
+    width: 90%;
+  }
 }

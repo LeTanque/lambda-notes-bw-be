@@ -1,27 +1,39 @@
 body {
-  color: @dark;
+  color: @gray;
   font-size: 1.6rem;
 }
 
 button {
   border: 1px solid @light-gray;
+  font-weight: bold;
+  margin: 10px auto;
 }
 
 #root {
   .App {
     padding-left: 0;
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 1fr 2fr;
+    @media @large {
+      grid-template-columns: 275px 1fr;
+    }
     nav {
       background-color: @light;
       color: @gray;
       border-right: 1px solid @light-gray;
       position: sticky;
       height: 100vh;
-      
+      max-width: 275px;
+      padding: 20px;
+      @media @small {
+        max-width: 200px;
+      }
     }
     .note-container {
+      background-color: @off-white;
+      position: relative;
       padding: 60px 20px 20px 20px;
+      max-width: 1100px;
     }
   }
 }

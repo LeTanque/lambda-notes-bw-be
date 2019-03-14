@@ -1,0 +1,25 @@
+.note-gallery {
+    display: grid;
+    margin-top: 20px;
+    .note-card {
+        background-color: @white;
+        border: 1px solid @light;
+        padding: 15px;
+        margin-bottom: 10px;
+        width: 48%;
+        box-shadow: @box-shadow-resting;
+        text-overflow: ellipsis;
+        &:hover {
+            box-shadow: @box-shadow-hover;
+            .transition(0.5s);
+        }
+        @media @large {
+            width: 22%;
+        }
+        @media @small {
+            width: 90%;
+        }
+    }
+}
+
+
