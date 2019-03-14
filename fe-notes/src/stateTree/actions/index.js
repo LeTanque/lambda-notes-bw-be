@@ -12,6 +12,15 @@ export const DELETE_NOTE_START = 'DELETE_NOTE_START';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAIL = 'DELETE_NOTE_FAIL';
 
+export const SET_TARGET_NOTE = 'SET_TARGET_NOTE';
+
+// export const NOTE_DETAIL_START = 'NOTE_DETAIL_START';
+export const NOTE_DETAIL_SUCCESS = 'NOTE_DETAIL_SUCCESS';
+export const NOTE_DETAIL_FAIL = 'NOTE_DETAIL_FAIL';
+
+
+
+
 
 
 
@@ -75,6 +84,38 @@ export const deleteNote = (id) => dispatch => {
       })
     });
 }
+
+export const targetNoteSet = (event, noteObject) => {
+  event.persist();
+  return {
+      type: SET_TARGET_NOTE,
+      payload: noteObject,
+  }
+}
+
+export const noteDetail = (noteID) => dispatch => {
+  // dispatch({
+  //   type:NOTE_DETAIL_START
+  // })
+  axios
+    .get('https://fe-notes.herokuapp.com/note/get/'+noteID)
+    .then(response => {
+      dispatch({
+        type:NOTE_DETAIL_SUCCESS,
+        payload:response.data,
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type:NOTE_DETAIL_FAIL,
+        payload:error.message,
+      })
+    })
+}
+
+// https://fe-notes.herokuapp.com/note/get/5c872600ba23be0015c8ab0a
+
+
 
 
 // export const updateSmurf = (smurfObject) => dispatch => {

@@ -5,9 +5,13 @@ import {
   ADD_NOTE_START,
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAIL,
-  DELETE_NOTE_START,
-  DELETE_NOTE_SUCCESS,
-  DELETE_NOTE_FAIL,
+  SET_TARGET_NOTE,
+  // NOTE_DETAIL_START,
+  NOTE_DETAIL_SUCCESS,
+  NOTE_DETAIL_FAIL,
+  // DELETE_NOTE_START,
+  // DELETE_NOTE_SUCCESS,
+  // DELETE_NOTE_FAIL,
 } from '../actions';
 
   
@@ -20,11 +24,13 @@ const initialState = {
     tags:[],
     textBody:'',
     title:'',
+    _id:'',
   },
+  targetNoteID:'',
   newNote: false,
   error: null,
 }
-  
+
   
   
 const rootReducer = (state=initialState, action) => {
@@ -74,6 +80,25 @@ const rootReducer = (state=initialState, action) => {
         error: action.payload,
         newNote:false,
       }
+    case SET_TARGET_NOTE:
+      return {
+        ...state,
+        targetNote:action.payload,
+        targetNoteID:action.payload._id,
+        error: null,
+      }
+    case NOTE_DETAIL_SUCCESS:
+      return {
+        ...state,
+        targetNote:action.payload,
+        error: null,
+      }
+    case NOTE_DETAIL_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      }
+
     default:
       return state;
   }
