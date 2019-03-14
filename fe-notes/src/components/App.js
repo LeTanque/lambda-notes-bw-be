@@ -8,19 +8,36 @@ import Sidebar from './Sidebar';
 import Notes from './Notes';
 import NewNote from './NewNote'
 import Welcome from './Welcome';
-
+import NoteDetail from './NoteDetail';
 
 
 const App = props => {
   
   
-  // React.useEffect(() => {
-  //   props.notes.length === 0 && props.getNotes();
-  // })
+  const [targetNote, setTargetNote] = React.useState(props.targetNote);
+  
+  React.useEffect(() => {
+    let noteFiltered = props.notes.filter(note => note._id === destination);
+
+    setTargetNote(noteFiltered);
+  })
+
+
+  const setActiveNote = (event, destination) => {
+
+    let noteFiltered = props.notes.filter(note => note._id === destination);
+
+    setTargetNote(noteFiltered);
+  
+  }
 
   // console.log('This is the state: ',state)
   // console.log('These are the notes: ',state.notes)
 
+
+
+  console.log('target note',targetNote,props.targetNote)
+  // console.log('props.notes',props.notes)
   
   return (
     <Fragment>
@@ -38,6 +55,7 @@ const App = props => {
             render={props => (
               <Notes 
                 notes={props.notes} 
+                // setActiveNote={setActiveNote}
               />
             )}
           />
@@ -52,6 +70,17 @@ const App = props => {
             render={props => (
               <NewNote 
                 notes={props.notes}
+              />
+            )}
+          />
+          <Route
+            exact
+            path='/note/:id'
+            render={() => (
+              <NoteDetail 
+                // notes={props.notes}
+                // setActiveNote={setActiveNote}
+                targetNote={targetNote}
               />
             )}
           />

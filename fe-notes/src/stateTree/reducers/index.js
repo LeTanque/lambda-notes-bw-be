@@ -5,6 +5,9 @@ import {
   ADD_NOTE_START,
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAIL,
+  DELETE_NOTE_START,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAIL,
 } from '../actions';
 
   
@@ -15,12 +18,9 @@ const initialState = {
   creatingNote: false,
   targetNote:{
     tags:[],
-    textBody: "",
-    title: "",
-    __v: null,
-    _id: "",
+    textBody:'',
+    title:'',
   },
-  editNote: '',
   newNote: false,
   error: null,
 }

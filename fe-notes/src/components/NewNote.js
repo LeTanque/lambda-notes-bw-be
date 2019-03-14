@@ -29,7 +29,7 @@ const NewNote = props => {
 
 
     // console.log('NewNote props:  ',props)
-    console.log('NewNote Hook :   ',targetNotes)
+    // console.log('NewNote Hook :   ',targetNotes)
 
 
 

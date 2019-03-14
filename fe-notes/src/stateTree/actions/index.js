@@ -8,9 +8,9 @@ export const ADD_NOTE_START = 'ADD_NOTE_START';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAIL = 'ADD_NOTE_FAIL';
 
-// export const REMOVE_NOTE_START = 'REMOVE_NOTE_START';
-// export const REMOVE_NOTE_SUCCESS = 'REMOVE_NOTE_SUCCESS';
-// export const REMOVE_NOTE_FAIL = 'REMOVE_NOTE_FAIL';
+export const DELETE_NOTE_START = 'DELETE_NOTE_START';
+export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const DELETE_NOTE_FAIL = 'DELETE_NOTE_FAIL';
 
 
 
@@ -55,27 +55,26 @@ export const addNote = (noteObject) => dispatch => {
     })
 }
 
-
-// export const removeSmurf = (id) => dispatch => {
-//   dispatch({
-//     type: REMOVE_SMURF_START
-//   })
-//   axios
-//     .delete('http://localhost:3333/smurfs/'+id)
-//     .then(response => {
-//       dispatch({
-//         type: REMOVE_SMURF,
-//         payload: response.data,
-//       })
-//     })
-//     .catch(error => {
-//       dispatch({
-//         type: REMOVE_SMURF_FAIL,
-//         payload: error.message, 
-//         id
-//       })
-//     });
-// }
+export const deleteNote = (id) => dispatch => {
+  dispatch({
+    type: DELETE_NOTE_START
+  })
+  axios
+    .delete('https://fe-notes.herokuapp.com/note/delete/'+id)
+    .then(response => {
+      dispatch({
+        type: DELETE_NOTE_SUCCESS,
+        payload: response.data,
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: DELETE_NOTE_FAIL,
+        payload: error.message, 
+        id
+      })
+    });
+}
 
 
 // export const updateSmurf = (smurfObject) => dispatch => {

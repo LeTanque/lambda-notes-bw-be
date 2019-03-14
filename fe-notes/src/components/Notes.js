@@ -19,7 +19,7 @@ const Notes = props => {
 
 
     React.useEffect(() => {
-        if (props.newNote) {
+        if (props.newNote === true) {
             return props.getNotes();
         }
         if (props.notes.length === 0) {
@@ -27,11 +27,11 @@ const Notes = props => {
         }        
     })
     
-    console.log('All of the Notes props:  ',props)
+    // console.log('All of the Notes props:  ',props)
 
     const childElements = props.notes.map(note => (
         <Fragment key={note._id}>
-            <Note note={note} />
+            <Note note={note}  />
         </Fragment>
     ))
 
@@ -65,4 +65,3 @@ export default connect(
     mapStateToProps, 
     { getNotes }
 )(Notes);
-  
