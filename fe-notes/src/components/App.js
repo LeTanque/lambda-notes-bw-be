@@ -6,7 +6,7 @@ import { getNotes } from '../stateTree/actions';
 
 import Sidebar from './Sidebar';
 import Notes from './Notes';
-import NewNote from './NewNote'
+import NoteForm from './NoteForm'
 import Welcome from './Welcome';
 import NoteDetail from './NoteDetail';
 
@@ -45,7 +45,7 @@ class App extends Component {
     // console.log('This is the state: ',state)
     // console.log('These are the notes: ',state.notes)
     // console.log('target note',targetNote,props.targetNote)
-    console.log('App.js props:  ', this.props)
+    // console.log('App.js props:  ', this.props)
 
     return (
       <Fragment>
@@ -74,7 +74,7 @@ class App extends Component {
             <Route
               path='/new-note' 
               render={props => (
-                <NewNote 
+                <NoteForm 
                   history={props.history}
                 />
               )}
@@ -93,7 +93,7 @@ class App extends Component {
               // exact
               path='/update-note'
               render={(props) => (
-                <NewNote
+                <NoteForm
                   history={props.history}
                 />
               )}

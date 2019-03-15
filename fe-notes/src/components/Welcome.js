@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Welcome = props => {
+const Welcome = () => {
     
     // console.log('Welcome props:  ',props)
 
     return (
-        <h6 className='italic'>Welcome!</h6>
+        <section className='welcome'>
+            <h3>Welcome!</h3>
+        </section>
+        
     )
 }
 

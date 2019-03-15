@@ -26,29 +26,28 @@ class NoteDetail extends Component {
 
     render() {
 
-        // console.log('NOTEDETAIL props:  ',props)
-        // console.log('Pathname  ',window.location.pathname )
-        // console.log('NoteDetail.js  props:  ', this.props)
-
         return (
             <Fragment>
 
                     <section className='note-detail-card'>
                         <div className='note-detail'>
-                            <h5>{this.props.targetNote.title}</h5>
+                            <h3>{this.props.targetNote.title}</h3>
                             <p>
                                 {this.props.targetNote.textBody}<br />
                             </p>
                         </div>
                         <div className='note-detail-buttons'>
-                            <button 
-                                className='btn-primary'
-                                onClick={() => this.updateNote(this.props.targetNote)}
-                                >UPDATE</button>
-                            <button 
-                                className='btn-red'
-                                onClick={() => this.deleteNote(this.props.id)}
-                                >DELETE</button>    
+                            <div 
+                                className='note-edit-links'
+                                onClick={() => this.updateNote(this.props.targetNote)}>
+                                edit
+                            </div>
+                            <div 
+                                className='note-edit-links'
+                                onClick={() => this.deleteNote(this.props.id)}>
+                                delete
+                            </div>
+
                         </div>
                     </section>
 
@@ -59,8 +58,6 @@ class NoteDetail extends Component {
     
 }
 
-
-
 const mapStateToProps = state => ({
     targetNote:state.targetNote,
     targetNoteID:state.targetNoteID,
@@ -70,4 +67,3 @@ export default connect(
     mapStateToProps, 
     { noteDetail, deleteNote, updateNoteSet }
 )(NoteDetail);
-

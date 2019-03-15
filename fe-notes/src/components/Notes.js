@@ -54,7 +54,7 @@ class Notes extends Component {
                 <section className='note-container'>
                     
     
-                    <h3 className='cltgray'>Your Notes:</h3>
+                    <h3 className=''>Your Notes:</h3>
                     <Masonry
                         className={'note-gallery'} // default ''
                         elementType={'ul'} // default 'div'
