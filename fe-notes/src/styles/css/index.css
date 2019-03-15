@@ -637,21 +637,14 @@ button {
   color: #bdbdbd;
   margin: 10px 0;
 }
-.note-gallery .note-card .note .note-fade {
+.note-gallery .note-card .note .note-clamp {
   color: #686868;
   margin-top: 10px;
-  position: relative;
-  max-height: 11.2rem;
-  overflow: hidden;
   white-space: pre-line;
+  word-break: break-word;
 }
-.note-gallery .note-card .note .note-fade:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 1.8rem;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+.note-gallery .note-card .note .note-clamp button {
+  display: none;
 }
 .note-detail-card {
   background-color: #f0f0f0;

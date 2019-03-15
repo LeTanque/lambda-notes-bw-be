@@ -26,22 +26,15 @@
                 color: @light;
                 margin: 10px 0;
             }
-            .note-fade {
+            .note-clamp {
                 color: @gray*1.2;
                 margin-top: 10px;
-                position: relative;
-                max-height: 11.2rem;
-                overflow: hidden;
                 white-space: pre-line;
-                &:after {
-                    content: "";
-                    position: absolute;
-                    bottom: 0;
-                    width: 100%;
-                    height: 1.8rem;
-                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                word-break: break-word;
+                button {
+                    display: none;
                 }
-            }   
+            }
         }
     }
 }

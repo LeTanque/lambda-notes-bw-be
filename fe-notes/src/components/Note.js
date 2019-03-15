@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
+import ReactMarkdown from 'react-markdown';
+import ClampLines from 'react-clamp-lines';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 
 import { targetNoteSet } from '../stateTree/actions';
 
@@ -9,8 +10,11 @@ import { targetNoteSet } from '../stateTree/actions';
 
 class Note extends Component {
 
+
     render() {
+
         // const tag = this.props.note.tags.map(tag => tag)
+        // const textToClamp = 
 
         return (
             <Fragment>
@@ -27,10 +31,20 @@ class Note extends Component {
                             <h5>{this.props.note.title}</h5>
                             <hr />
                             <Fragment>
-                                <ReactMarkdown 
-                                    source={this.props.note.textBody} 
-                                    className='note-fade'
+                                <ClampLines
+                                    text={this.props.note.textBody}
+                                    lines={4}
+                                    ellipsis="..."
+                                    moreText="Read More" // Button is set to display-none
+                                    lessText="Read Less"
+                                    className="note-clamp"
                                 />
+                                    {/* <ReactMarkdown 
+                                        source={this.props.note.textBody} 
+                                        className='note-fade'
+                                    /> */}
+
+                                
                             </Fragment>
                             <br />
                             {/* {tag} */}
