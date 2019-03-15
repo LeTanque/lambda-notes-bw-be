@@ -109,7 +109,6 @@ export const noteDetail = (noteID) => dispatch => {
 }
 
 export const updateNoteSet = (noteObject, history) => {
-  // event.persist();
   history.push('/update-note');
   return {
       type:UPDATE_NOTE_START,

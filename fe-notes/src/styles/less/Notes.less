@@ -75,6 +75,10 @@
         input {
             border: 1px solid @light;
             box-shadow: @box-shadow-resting;
+            max-width: 80%;
+            @media @small {
+                max-width: 100%;
+            }
         }
         textarea {
             border: 1px solid @light;

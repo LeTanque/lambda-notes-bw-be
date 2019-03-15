@@ -15,34 +15,14 @@ const masonryOptions = {
 };
 
 
-
 class Notes extends Component {
 
     componentDidMount() {
         this.props.getNotes();
-        // if (this.props.newNote === true) {
-        //     return this.props.getNotes();
-        // } 
-        // // else if (this.props.notes.length === 0) {
-        // //     return this.props.getNotes();
-        // // }
-        // else if (this.props.editingNote === true) {
-        //     return this.props.getNotes();
-        // }
-        // // else if (this.props.deletedNote.success !== null) {
-        // //   return this.props.getNotes();
-        // // } 
-        // else {
-        //     return;
-        // }
     }
-    
 
-    
     render() {
         
-        // console.log('All of the Notes props:  ', this.props)
-
         const childElements = this.props.notes.map(note => (
             <Fragment key={note._id}>
                 <Note note={note}  />

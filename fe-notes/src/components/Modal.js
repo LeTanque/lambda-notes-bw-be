@@ -9,11 +9,10 @@ class Modal extends Component {
 
     render() {
 
-        if(!this.props.show) {
+        if(!this.props.show) { // If the show modal prop is false, immediately return null for the modal.
             return null;
         }
 
-        console.log('Modal props:  ', this.props)
         return (
             <div className="modal-backdrop" >
                 <div className="modal-style" >

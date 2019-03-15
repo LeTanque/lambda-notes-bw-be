@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 import { noteDetail, deleteNote, updateNoteSet } from '../stateTree/actions';
 
@@ -15,22 +14,22 @@ class NoteDetail extends Component {
         }
     }
 
-    toggleModal = () => {
+    toggleModal = () => {  // Toggles modal view when user clicks delete. Then user either closes modal or processes delete
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
 
-    componentDidMount() {
+    componentDidMount() { // Makes it so however you got here, the note info will match current note ID in url
         this.props.noteDetail(this.props.id)
     }
 
-    deleteNote = (id) => {
+    deleteNote = (id) => { // This method gets passed down into the modal
         this.toggleModal();
         this.props.deleteNote(id, this.props.history);
     }
 
-    updateNote = (noteObject) => {
+    updateNote = (noteObject) => { // Triggers to send user to the form prefilled with targetNote
         this.props.updateNoteSet(noteObject, this.props.history);
     }
 
@@ -72,9 +71,7 @@ class NoteDetail extends Component {
 
             </Fragment>
         )
-
-    } 
-    
+    }
 }
 
 const mapStateToProps = state => ({

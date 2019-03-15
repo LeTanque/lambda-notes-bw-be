@@ -8,11 +8,7 @@ import { targetNoteSet } from '../stateTree/actions';
 
 class Note extends Component {
 
-
-
     render() {
-
-        // console.log('Note.js:  ', this.props)
 
         return (
             <Fragment>
@@ -24,13 +20,13 @@ class Note extends Component {
                     to={`/note/${this.props.note._id}`}
                 >
                     <section className='note-card'>
-                        
-                            <div className='note'>
-                                <h5>{this.props.note.title}</h5>
-                                <p>
-                                    {this.props.note.textBody}<br />
-                                </p>
-                            </div>
+                    
+                        <div className='note'>
+                            <h5>{this.props.note.title}</h5>
+                            <p>
+                                {this.props.note.textBody}<br />
+                            </p>
+                        </div>
                         
                     </section>
                 </Link>

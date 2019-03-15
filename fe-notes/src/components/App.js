@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import { getNotes } from '../stateTree/actions';
+import { } from '../stateTree/actions';
 
 import Sidebar from './Sidebar';
 import Notes from './Notes';
@@ -13,46 +13,21 @@ import NoteDetail from './NoteDetail';
 
 
 class App extends Component {
-  state = {
-    notes:[],
-    targetNote:{},
-  }
-  
-  setActiveNote = (event, destination) => {
-    let noteFiltered = this.props.notes.filter(note => note._id === destination);
-    this.setState({
-      targetNote:noteFiltered,
-    });
-  }
-
-  componentDidMount() {
-    this.setState({
-      targetNote:{},
-    })
-  }
 
   render() {
-    // console.log('This is the state: ',state)
-    // console.log('These are the notes: ',state.notes)
-    // console.log('target note',targetNote,props.targetNote)
-    // console.log('App.js props:  ', this.props)
 
     return (
       <Fragment>
         <BrowserRouter>
           <section className='App'>
             
-  
-  
             <Sidebar />
-  
   
             <Route
               exact
               path='/'
               render={() => (
-                <Notes 
-                />
+                <Notes />
               )}
             />
             <Route
@@ -72,7 +47,7 @@ class App extends Component {
             <Route
               // exact
               path='/note/:id'
-              render={(props) => (
+              render={props => (
                 <NoteDetail
                   id={props.match.params.id}
                   history={props.history}
@@ -82,7 +57,7 @@ class App extends Component {
             <Route
               // exact
               path='/update-note'
-              render={(props) => (
+              render={props => (
                 <NoteForm
                   history={props.history}
                 />
@@ -93,9 +68,7 @@ class App extends Component {
         </BrowserRouter>
       </Fragment>
     );
-
   }
-  
 }
 
 const mapStateToProps = state => ({
@@ -104,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps, 
-  { getNotes }
+  {  }
 )(App);

@@ -5,7 +5,6 @@ import { addNote, updateNote } from '../stateTree/actions';
 
 
 
-
 class NoteForm extends Component {
     constructor(props){
         super(props);
@@ -15,19 +14,17 @@ class NoteForm extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount() { // If editingNote state is true, set state equal to props
         if (this.props.editingNote) {
             this.setState({
                 title:this.props.targetNote.title,
                 textBody:this.props.targetNote.textBody,
             })
-            console.log('editingNote is true');
         } else {
-            console.log('editingNote is false');
         }
     }
-    
-    pushNote = (event) => {
+
+    pushNote = event => { // Depending on editingNote state, either updateNote or addNote
         event.preventDefault();
         if (this.props.editingNote) {
             this.props.updateNote(this.props.targetNote._id, this.state, this.props.history);
@@ -46,12 +43,10 @@ class NoteForm extends Component {
 
     render() {
 
-        // console.log('NewNote props:  ', this.props)
-        // console.log('NewNote state:  ', this.state)
-
+        // Change header and button to reflect editingNote state
         let header;
         let button;
-        if(this.props.editingNote) {
+        if (this.props.editingNote) {
             header = 'Edit Note:';
             button = 'Update';
         } else {
