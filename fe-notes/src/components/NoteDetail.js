@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
-import { noteDetail, deleteNote } from '../stateTree/actions';
-
+import { noteDetail, deleteNote, updateNoteSet } from '../stateTree/actions';
 
 
 
@@ -22,16 +20,18 @@ class NoteDetail extends Component {
         this.props.deleteNote(id, this.props.history);
     }
 
+    updateNote = (noteObject) => {
+        this.props.updateNoteSet(noteObject, this.props.history);
+    }
 
     render() {
 
         // console.log('NOTEDETAIL props:  ',props)
         // console.log('Pathname  ',window.location.pathname )
-        console.log('NoteDetail.js  props:  ', this.props)
+        // console.log('NoteDetail.js  props:  ', this.props)
 
         return (
             <Fragment>
-
 
                     <section className='note-detail-card'>
                         <div className='note-detail'>
@@ -43,15 +43,14 @@ class NoteDetail extends Component {
                         <div className='note-detail-buttons'>
                             <button 
                                 className='btn-primary'
-                                // onClick={}
+                                onClick={() => this.updateNote(this.props.targetNote)}
                                 >UPDATE</button>
                             <button 
                                 className='btn-red'
-                                onClick={()=>this.deleteNote(this.props.id)}
+                                onClick={() => this.deleteNote(this.props.id)}
                                 >DELETE</button>    
                         </div>
                     </section>
-
 
             </Fragment>
         )
@@ -69,6 +68,6 @@ const mapStateToProps = state => ({
   
 export default connect(
     mapStateToProps, 
-    { noteDetail, deleteNote }
+    { noteDetail, deleteNote, updateNoteSet }
 )(NoteDetail);
 

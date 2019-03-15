@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { addNote } from '../stateTree/actions';
+import { addNote, updateNote } from '../stateTree/actions';
 
 
 
@@ -15,15 +15,30 @@ class NewNote extends React.Component {
         }
     }
 
-    
-    createNote = () => {
-        this.setState({
-            title:'',
-            textBody:'',
-        });
-        this.props.addNote(this.state);
+    componentDidMount() {
+        if (this.props.editingNote === true) {
+            this.setState({
+                title:this.props.targetNote.title,
+                textBody:this.props.targetNote.textBody,
+            })
+        }
+        // if (this.props.newNote) {
+        //     this.setState({
+        //         title:'',
+        //         textBody:'',
+        //     })
+        // }
     }
 
+    updateNote = (event) => {
+        event.preventDefault();
+        this.props.updateNote(this.props.targetNote._id, this.state, this.props.history);
+    }
+
+    addNote = (event) => {
+        event.preventDefault();
+        this.props.addNote(this.state, this.props.history);
+    }
 
     handleInputChange = event => {
         event.persist();
@@ -33,20 +48,17 @@ class NewNote extends React.Component {
         });
     };
 
-
-
-
-    
     render() {
 
-        // console.log('NewNote props:  ', this.props)
-        // console.log('NewNote state:  ', this.state)
+        console.log('NewNote props:  ', this.props)
+        console.log('NewNote state:  ', this.state)
+        // console.log('NewNote updateNote:  ', this.props.targetNote._id, this.state);
         // console.log('NewNote targetNotes :   ', this.targetNotes)
         // console.log('NewNote noteEditing :   ', this.noteEditing)
 
         return (
             <Fragment>
-                <form onSubmit={this.createNote} >
+                <form>
                     <input 
                         placeholder='Title...'
                         name='title'
@@ -61,7 +73,9 @@ class NewNote extends React.Component {
                         value={this.state.textBody}
                         onChange={this.handleInputChange}
                     />
-                    <button onSubmit={this.createNote}>Submit</button>
+
+                    <button onClick={this.addNote}>New Note</button>
+                    <button onClick={this.updateNote}>Update</button>
                 </form>
             </Fragment>
         )
@@ -72,9 +86,10 @@ class NewNote extends React.Component {
 const mapStateToProps = state => ({
     targetNote:state.targetNote,
     newNote:state.newNote,
+    editingNote:state.editingNote,
 })
   
 export default connect(
     mapStateToProps, 
-    { addNote }
+    { addNote, updateNote }
 )(NewNote);

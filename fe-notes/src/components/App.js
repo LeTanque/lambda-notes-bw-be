@@ -35,6 +35,12 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    this.setState({
+      targetNote:{},
+    })
+  }
+
   render() {
     // console.log('This is the state: ',state)
     // console.log('These are the notes: ',state.notes)
@@ -69,7 +75,7 @@ class App extends Component {
               path='/new-note' 
               render={props => (
                 <NewNote 
-                  targetNote={props.targetNote}
+                  history={props.history}
                 />
               )}
             />
@@ -79,6 +85,15 @@ class App extends Component {
               render={(props) => (
                 <NoteDetail
                   id={props.match.params.id}
+                  history={props.history}
+                />
+              )}
+            />
+            <Route
+              // exact
+              path='/update-note'
+              render={(props) => (
+                <NewNote
                   history={props.history}
                 />
               )}

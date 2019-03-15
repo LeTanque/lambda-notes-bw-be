@@ -6,27 +6,8 @@ import { targetNoteSet } from '../stateTree/actions';
 
 
 
-
-
-
 class Note extends Component {
 
-
-    // const [targetNote, setTargetNote] = React.useState(props.targetNote);
-
-    // const setActiveNote = (event, destination) => {
-    //     // event.preventDefault();
-    //     let noteFiltered = props.notes.filter(note => note._id === destination);
-
-    //     setTargetNote(noteFiltered);
-        
-    //     // console.log(props);  
-    //     // this.setState({
-    //     //   activeSmurf: smurfFromState
-    //     // });
-    //     // props.history.push(`/note/${destination}`);
-    // }
-    
 
 
     render() {
@@ -53,17 +34,17 @@ class Note extends Component {
                         
                     </section>
                 </Link>
+
             </Fragment>
         )
-
     }
-    
 }
 
 
 
 const mapStateToProps = state => ({
     notes:state.notes,
+    targetNote:'',
 })
   
 export default connect(

@@ -6,21 +6,23 @@ import {
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAIL,
   SET_TARGET_NOTE,
-  // NOTE_DETAIL_START,
   NOTE_DETAIL_SUCCESS,
   NOTE_DETAIL_FAIL,
-  // DELETE_NOTE_START,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAIL,
+  UPDATE_NOTE_START,
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAIL,
 } from '../actions';
 
   
 const initialState = {
   notes: [],
-  fetchingNote: false,
-  editingNote: false,
-  creatingNote: false,
-  deletedNote:null,
+  fetchingNote:false,
+  editingNote:false,
+  creatingNote:false,
+  newNote: false,
+  deletedNote:'',
   targetNote:{
     tags:[],
     textBody:'',
@@ -28,7 +30,6 @@ const initialState = {
     _id:'',
   },
   targetNoteID:'',
-  newNote: false,
   error: null,
 }
 
@@ -52,27 +53,29 @@ const rootReducer = (state=initialState, action) => {
         creatingNote: false,
         fetchingNote: false,
         newNote:false,
+        editingNote:false,
         error: null,
       }
     case GET_NOTES_FAIL:
       return {
         ...state,
-        creatingNote: false,
+        creatingNote:false,
         newNote:false,
         error: action.payload,
       }
     case ADD_NOTE_START:
       return {
         ...state,
-        creatingNote: true,
-        newNote:false,
+        creatingNote:true,
+        editingNote:false,
         error: null,
       }
     case ADD_NOTE_SUCCESS:
       return {
         ...state,
-        targetNote: action.payload,
-        creatingNote: false,
+        targetNoteID:action.payload,
+        creatingNote:false,
+        editingNote:false,
         newNote:true,
         error: null,
       }
@@ -92,12 +95,15 @@ const rootReducer = (state=initialState, action) => {
     case NOTE_DETAIL_SUCCESS:
       return {
         ...state,
+        editingNote:false,
         targetNote:action.payload,
+        targetNoteID:action.payload._id,
         error: null,
       }
     case NOTE_DETAIL_FAIL:
       return {
         ...state,
+        editingNote:false,
         error: action.payload,
       }
     case DELETE_NOTE_SUCCESS:
@@ -112,7 +118,28 @@ const rootReducer = (state=initialState, action) => {
         deletedNote:null,
         error: action.payload,
       }
-
+    case UPDATE_NOTE_START:
+      return {
+        ...state,
+        editingNote:true,
+        newNote:false,
+        targetNote:action.payload,
+        targetNoteID:action.payload._id,
+        error:null,
+      }
+    case UPDATE_NOTE_SUCCESS:
+      return {
+        ...state,
+        editingNote:false,
+        targetNote:action.payload,
+        error:null,
+      }
+    case UPDATE_NOTE_FAIL:
+      return {
+        ...state,
+        editingNote:false,
+        error:action.payload,
+      }
 
     default:
       return state;
