@@ -18,16 +18,6 @@ class App extends Component {
     targetNote:{},
   }
   
-  
-  // const [targetNote, setTargetNote] = React.useState(props.targetNote);
-  
-  // React.useEffect(() => {
-  //   let noteFiltered = props.notes.filter(note => note._id === destination);
-
-  //   setTargetNote(noteFiltered);
-  // })
-
-
   setActiveNote = (event, destination) => {
     let noteFiltered = this.props.notes.filter(note => note._id === destination);
     this.setState({

@@ -26,17 +26,7 @@ class NoteForm extends Component {
             console.log('editingNote is false');
         }
     }
-
-    updateNote = (event) => {
-        event.preventDefault();
-        this.props.updateNote(this.props.targetNote._id, this.state, this.props.history);
-    }
-
-    addNote = (event) => {
-        event.preventDefault();
-        this.props.addNote(this.state, this.props.history);
-    }
-
+    
     pushNote = (event) => {
         event.preventDefault();
         if (this.props.editingNote) {
