@@ -13,9 +13,8 @@ import App from './components/App';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(
-// const store = createStore(
     applyMiddleware(thunk, logger)));
-  
+
 const rootElement = document.getElementById('root');
 
 
@@ -25,3 +24,6 @@ ReactDOM.render(
 </Provider>, 
 rootElement);
 
+// I modified the build command in package.json to redirect 404's to index.html
+// Very hacky way to fix the routing problem
+// Would recommend proper netlify redirect configuration for production projects

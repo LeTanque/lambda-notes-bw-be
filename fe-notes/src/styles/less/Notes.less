@@ -4,7 +4,7 @@
     .note-card {
         background-color: @white;
         color: @gray;        
-        padding: 15px 15px 0px 15px;
+        padding: 15px 15px 10px 15px;
         margin-bottom: 10px;
         width: 48%;
         border: 1px solid @light;
@@ -15,10 +15,10 @@
             .transition(0.5s);
         }
         @media @large {
-            width: 22%;
+            width: 30%;
         }
         @media @small {
-            width: 90%;
+            width: 100%;
         }
         .note {
             hr {
@@ -26,13 +26,32 @@
                 color: @light;
                 margin: 10px 0;
             }
-            .note-clamp {
-                color: @gray*1.2;
-                margin-top: 10px;
-                white-space: pre-line;
-                word-break: break-word;
-                button {
-                    display: none;
+            // .note-clamp {  // Used with the react-clamp line clamp component
+            //     color: @gray*1.2;
+            //     margin-top: 10px;
+            //     white-space: pre-line;
+            //     word-break: break-word;
+            //     button {
+            //         display: none;
+            //     }
+            // }
+            .note-fade {
+                position: relative;
+                overflow: hidden;
+                line-height: 1em;
+                max-height: 1em*7;
+                &:after {
+                    content: "";
+                    text-align: right;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2em; // Fade about 1 line. This get's thrown off when markdown changes height of line
+                    background: linear-gradient(170deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));                  
+                }
+                h1, h2, h3, h4, h5, h6, ul, li, code { // Canceling out markdown font-size adjustments
+                    font-size: 1.6rem;
+                    line-height: 1.4 !important; // Using important to override specificity in this scenario
                 }
             }
         }

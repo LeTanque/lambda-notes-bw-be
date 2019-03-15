@@ -35,9 +35,6 @@ class NoteDetail extends Component {
     }
 
     render() {
-
-        console.log('NoteDetail props:  ', this.props)
-
         return (
             <Fragment>
 

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-// import ReactMarkdown from 'react-markdown';
-import ClampLines from 'react-clamp-lines';
+import ReactMarkdown from 'react-markdown';
+// import ClampLines from 'react-clamp-lines';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -12,10 +12,6 @@ class Note extends Component {
     
 
     render() {
-
-        // const tag = this.props.note.tags.map(tag => tag)
-        // const textToClamp = 
-
         return (
             <Fragment>
 
@@ -31,21 +27,19 @@ class Note extends Component {
                             <h5>{this.props.note.title}</h5>
                             <hr />
                             <Fragment>
-                                <ClampLines
+                                {/* <ClampLines
                                     text={this.props.note.textBody}
                                     lines={4}
                                     ellipsis="..."
                                     className="note-clamp"
-                                />
-                                {/* <ReactMarkdown 
-                                    source={this.state.clampedLines} 
-                                    className='note-fade'
                                 /> */}
+                                <ReactMarkdown 
+                                    source={this.props.note.textBody} 
+                                    className='note-fade'
+                                />
 
                                 
                             </Fragment>
-                            <br />
-                            {/* {tag} */}
                         </div>
                         
                     </section>

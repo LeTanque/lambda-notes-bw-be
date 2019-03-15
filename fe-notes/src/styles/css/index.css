@@ -609,7 +609,7 @@ button {
 .note-gallery .note-card {
   background-color: #ffffff;
   color: #575757;
-  padding: 15px 15px 0px 15px;
+  padding: 15px 15px 10px 15px;
   margin-bottom: 10px;
   width: 48%;
   border: 1px solid #bdbdbd;
@@ -624,12 +624,12 @@ button {
 }
 @media (min-width: 821px) {
   .note-gallery .note-card {
-    width: 22%;
+    width: 30%;
   }
 }
 @media (min-width: 0px) and (max-width: 600px) {
   .note-gallery .note-card {
-    width: 90%;
+    width: 100%;
   }
 }
 .note-gallery .note-card .note hr {
@@ -637,14 +637,32 @@ button {
   color: #bdbdbd;
   margin: 10px 0;
 }
-.note-gallery .note-card .note .note-clamp {
-  color: #686868;
-  margin-top: 10px;
-  white-space: pre-line;
-  word-break: break-word;
+.note-gallery .note-card .note .note-fade {
+  position: relative;
+  overflow: hidden;
+  line-height: 1em;
+  max-height: 7em;
 }
-.note-gallery .note-card .note .note-clamp button {
-  display: none;
+.note-gallery .note-card .note .note-fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2em;
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0), #ffffff);
+}
+.note-gallery .note-card .note .note-fade h1,
+.note-gallery .note-card .note .note-fade h2,
+.note-gallery .note-card .note .note-fade h3,
+.note-gallery .note-card .note .note-fade h4,
+.note-gallery .note-card .note .note-fade h5,
+.note-gallery .note-card .note .note-fade h6,
+.note-gallery .note-card .note .note-fade ul,
+.note-gallery .note-card .note .note-fade li,
+.note-gallery .note-card .note .note-fade code {
+  font-size: 1.6rem;
+  line-height: 1.4 !important;
 }
 .note-detail-card {
   background-color: #f0f0f0;
