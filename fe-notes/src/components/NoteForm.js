@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+// import { WithContext as ReactTags } from 'react-tag-input';
 
 import { addNote, updateNote } from '../stateTree/actions';
 
 
+// const KeyCodes = {comma: 188,enter: 13,};
+// const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 class NoteForm extends Component {
     constructor(props){
@@ -11,6 +14,10 @@ class NoteForm extends Component {
         this.state = {
             title:'',
             textBody:'',
+            tags:[ // There doesn't exist a way to send tags to the server through the API, afaik
+                { id: "Thailand", text: "Thailand" }, // But the functionality exists here, at least in part
+                { id: "India", text: "India" }
+            ],
         }
     }
 
@@ -41,6 +48,29 @@ class NoteForm extends Component {
         });
     };
 
+    handleTagDelete(i) {
+        const { tags } = this.state;
+        this.setState({
+            tags: tags.filter((tag, index) => index !== i),
+        });
+    }
+ 
+    handleTagAddition(tag) {
+        this.setState(state => ({ tags: [...state.tags, tag] }));
+    }
+ 
+    handleTagDrag(tag, currPos, newPos) {
+        const tags = [...this.state.tags];
+        const newTags = tags.slice();
+ 
+        newTags.splice(currPos, 1);
+        newTags.splice(newPos, 0, tag);
+ 
+        this.setState({ 
+            tags: newTags 
+        });
+    }
+
     render() {
 
         // Change header and button to reflect editingNote state
@@ -53,6 +83,8 @@ class NoteForm extends Component {
             header = 'Create New Note:'
             button = 'Save';
         }
+
+        console.log('NoteForm props:  ', this.props)
 
         return (
             <Fragment>
@@ -67,6 +99,13 @@ class NoteForm extends Component {
                             value={this.state.title}
                             onChange={this.handleInputChange}
                         />
+                        {/* <ReactTags 
+                            tags={this.state.tags}
+                            delimiters={delimiters} 
+                            handleDelete={this.handleTagDelete}
+                            handleAddition={this.handleTagAddition}
+                            handleDrag={this.handleTagDrag}
+                        /> */}
                         <textarea 
                             placeholder='Note Content...'
                             name='textBody'

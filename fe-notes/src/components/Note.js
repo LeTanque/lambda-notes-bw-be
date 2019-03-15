@@ -9,6 +9,7 @@ import { targetNoteSet } from '../stateTree/actions';
 class Note extends Component {
 
     render() {
+        const tag = this.props.note.tags.map(tag => tag)
 
         return (
             <Fragment>
@@ -25,6 +26,7 @@ class Note extends Component {
                             <h5>{this.props.note.title}</h5>
                             <p>
                                 {this.props.note.textBody}<br />
+                                {tag}
                             </p>
                         </div>
                         
