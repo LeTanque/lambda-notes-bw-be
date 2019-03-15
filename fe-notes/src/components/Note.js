@@ -3,14 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
-
-
-
-
-    
-
-
-
 import { targetNoteSet } from '../stateTree/actions';
 
 
@@ -33,8 +25,12 @@ class Note extends Component {
                     
                         <div className='note'>
                             <h5>{this.props.note.title}</h5>
-                            <br />
-                            <ReactMarkdown source={this.props.note.textBody} />
+                            <Fragment>
+                                <ReactMarkdown 
+                                    source={this.props.note.textBody} 
+                                    className='note-fade'
+                                />
+                            </Fragment>
                             <br />
                             {/* {tag} */}
                         </div>

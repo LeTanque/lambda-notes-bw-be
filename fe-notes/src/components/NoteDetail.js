@@ -42,12 +42,15 @@ class NoteDetail extends Component {
             <Fragment>
 
                     <section className='note-detail-card'>
-                        <div className='note-detail'>
-                            <h3>{this.props.targetNote.title}</h3>
-                            <br />
-                            <ReactMarkdown source={this.props.targetNote.textBody} />
-                            <br />
-                        </div>
+
+                        <h3>{this.props.targetNote.title}</h3>
+                        <Fragment>
+                            <ReactMarkdown 
+                                className='note-detail'
+                                source={this.props.targetNote.textBody} 
+                            />
+                        </Fragment>
+
                         <div className='note-detail-buttons'>    
 
                             <Modal 

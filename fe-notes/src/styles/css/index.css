@@ -596,7 +596,6 @@ button {
 }
 .note-gallery {
   background-color: #f0f0f0;
-  display: grid;
   margin-top: 20px;
 }
 .note-gallery .note-card {
@@ -625,6 +624,21 @@ button {
     width: 90%;
   }
 }
+.note-gallery .note-card .note .note-fade {
+  color: #686868;
+  margin-top: 10px;
+  position: relative;
+  max-height: 8rem;
+  overflow: hidden;
+}
+.note-gallery .note-card .note .note-fade:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.2rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+}
 .note-detail-card {
   background-color: #f0f0f0;
   position: relative;
@@ -634,8 +648,12 @@ button {
 .note-detail-card h3 {
   color: #575757;
 }
-.note-detail-card p {
+.note-detail-card .note-detail {
   margin-top: 20px;
+}
+.note-detail-card .note-detail p {
+  white-space: pre-line;
+  word-break: break-word;
 }
 .note-detail-card .note-detail-buttons {
   position: absolute;

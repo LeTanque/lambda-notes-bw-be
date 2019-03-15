@@ -2,7 +2,7 @@
 
 .note-gallery {
     background-color: @off-white;
-    display: grid;
+    // display: grid;
     margin-top: 20px;
     .note-card {
         background-color: @white;
@@ -23,6 +23,23 @@
         @media @small {
             width: 90%;
         }
+        .note {
+            .note-fade {
+                color: @gray*1.2;
+                margin-top: 10px;
+                position: relative;
+                max-height: 8rem;
+                overflow: hidden;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 3.2rem;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                }
+            }   
+        }
     }
 }
 
@@ -34,8 +51,12 @@
     h3 {
         color: @gray;
     }
-    p {
+    .note-detail {
         margin-top: 20px;
+        p {
+            white-space: pre-line;
+            word-break: break-word;
+        }
     }
     .note-detail-buttons {
         position: absolute;
