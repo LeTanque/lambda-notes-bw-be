@@ -5,60 +5,73 @@ import { addNote } from '../stateTree/actions';
 
 
 
-const NewNote = props => {
 
-
-    const [targetNotes, setNotes] = React.useState(props.targetNote);
+class NewNote extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            title:'',
+            textBody:'',
+        }
+    }
 
     
-
-    const handleInputChange = event => {
-        event.persist();
-        let value = event.target.value;
-        setNotes({ 
-            ...targetNotes,
-            [event.target.name]: value
+    createNote = () => {
+        this.setState({
+            title:'',
+            textBody:'',
         });
-    };
-    
-
-    const createNote = (event) => {
-        event.preventDefault();
-        props.addNote(targetNotes)
+        this.props.addNote(this.state);
     }
 
 
-    // console.log('NewNote props:  ',props)
-    // console.log('NewNote Hook :   ',targetNotes)
+    handleInputChange = event => {
+        event.persist();
+        let value = event.target.value;
+        this.setState({
+            [event.target.name]: value
+        });
+    };
 
 
 
-    return (
-        <Fragment>
-            <form onSubmit={createNote} >
-                <input 
-                    placeholder='Title...'
-                    name='title'
-                    type='text'
-                    value={targetNotes.title}
-                    onChange={handleInputChange}
-                />
-                <input 
-                    placeholder='Note...'
-                    name='textBody'
-                    type='text'
-                    value={targetNotes.textBody}
-                    onChange={handleInputChange}
-                />
-                <button onSubmit={createNote}>Submit</button>
-            </form>
-        </Fragment>
-    )
+
+    
+    render() {
+
+        // console.log('NewNote props:  ', this.props)
+        // console.log('NewNote state:  ', this.state)
+        // console.log('NewNote targetNotes :   ', this.targetNotes)
+        // console.log('NewNote noteEditing :   ', this.noteEditing)
+
+        return (
+            <Fragment>
+                <form onSubmit={this.createNote} >
+                    <input 
+                        placeholder='Title...'
+                        name='title'
+                        type='text'
+                        value={this.state.title}
+                        onChange={this.handleInputChange}
+                    />
+                    <input 
+                        placeholder='Note...'
+                        name='textBody'
+                        type='text'
+                        value={this.state.textBody}
+                        onChange={this.handleInputChange}
+                    />
+                    <button onSubmit={this.createNote}>Submit</button>
+                </form>
+            </Fragment>
+        )
+    }
 }
 
 
 const mapStateToProps = state => ({
-    ...state
+    targetNote:state.targetNote,
+    newNote:state.newNote,
 })
   
 export default connect(

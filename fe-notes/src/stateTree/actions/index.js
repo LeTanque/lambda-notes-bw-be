@@ -8,7 +8,7 @@ export const ADD_NOTE_START = 'ADD_NOTE_START';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAIL = 'ADD_NOTE_FAIL';
 
-export const DELETE_NOTE_START = 'DELETE_NOTE_START';
+// export const DELETE_NOTE_START = 'DELETE_NOTE_START';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAIL = 'DELETE_NOTE_FAIL';
 
@@ -64,10 +64,10 @@ export const addNote = (noteObject) => dispatch => {
     })
 }
 
-export const deleteNote = (id) => dispatch => {
-  dispatch({
-    type: DELETE_NOTE_START
-  })
+export const deleteNote = (id, history) => dispatch => {
+  // dispatch({
+  //   type: DELETE_NOTE_START
+  // })
   axios
     .delete('https://fe-notes.herokuapp.com/note/delete/'+id)
     .then(response => {
@@ -75,6 +75,7 @@ export const deleteNote = (id) => dispatch => {
         type: DELETE_NOTE_SUCCESS,
         payload: response.data,
       })
+      history.push('/');
     })
     .catch(error => {
       dispatch({

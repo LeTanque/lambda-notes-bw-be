@@ -10,8 +10,8 @@ import {
   NOTE_DETAIL_SUCCESS,
   NOTE_DETAIL_FAIL,
   // DELETE_NOTE_START,
-  // DELETE_NOTE_SUCCESS,
-  // DELETE_NOTE_FAIL,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAIL,
 } from '../actions';
 
   
@@ -20,6 +20,7 @@ const initialState = {
   fetchingNote: false,
   editingNote: false,
   creatingNote: false,
+  deletedNote:null,
   targetNote:{
     tags:[],
     textBody:'',
@@ -40,6 +41,7 @@ const rootReducer = (state=initialState, action) => {
         ...state,
         creatingNote: false,
         fetchingNote: true,
+        targetNote:'',
         newNote:false,
         error: null,
       }
@@ -98,6 +100,19 @@ const rootReducer = (state=initialState, action) => {
         ...state,
         error: action.payload,
       }
+    case DELETE_NOTE_SUCCESS:
+      return {
+        ...state,
+        deletedNote:action.payload,
+        error: action.payload,
+      }
+    case DELETE_NOTE_FAIL:
+      return {
+        ...state,
+        deletedNote:null,
+        error: action.payload,
+      }
+
 
     default:
       return state;

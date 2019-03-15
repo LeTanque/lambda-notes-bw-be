@@ -15,16 +15,9 @@ import NoteDetail from './NoteDetail';
 class App extends Component {
   state = {
     notes:[],
+    targetNote:{},
   }
   
-  componentDidMount() {
-    if (this.props.newNote === true) {
-      return this.props.getNotes();
-    }
-    if (this.props.notes.length === 0) {
-      return this.props.getNotes();
-    }    
-  }
   
   // const [targetNote, setTargetNote] = React.useState(props.targetNote);
   
@@ -76,7 +69,7 @@ class App extends Component {
               path='/new-note' 
               render={props => (
                 <NewNote 
-                  notes={props.notes}
+                  targetNote={props.targetNote}
                 />
               )}
             />
@@ -85,7 +78,8 @@ class App extends Component {
               path='/note/:id'
               render={(props) => (
                 <NoteDetail
-                  id={props.match.params.id} 
+                  id={props.match.params.id}
+                  history={props.history}
                 />
               )}
             />
@@ -101,7 +95,6 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   notes:state.notes,
-  fetchingNote:state.fetchingNote,
 })
 
 export default connect(

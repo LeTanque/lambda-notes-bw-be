@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Masonry from 'react-masonry-component';
 import { connect } from 'react-redux';
 
-import { } from '../stateTree/actions';
+import { getNotes } from '../stateTree/actions';
 
 import Note from './Note';
 
@@ -18,17 +18,17 @@ const masonryOptions = {
 
 class Notes extends Component {
 
-
-
-    // React.useEffect(() => {
-    //     if (props.newNote === true) {
-    //         return props.getNotes();
-    //     }
-    //     if (props.notes.length === 0) {
-    //         return props.getNotes();
-    //     }        
-    // })
-    
+    componentDidMount() {
+        if (this.props.newNote === true) {
+          return this.props.getNotes();
+        }
+        if (this.props.notes.length === 0) {
+          return this.props.getNotes();
+        }
+        if (this.props.deletedNote.success) {
+          return this.props.getNotes();
+        }
+    }
     
 
     
@@ -70,9 +70,12 @@ class Notes extends Component {
 const mapStateToProps = state => ({
     notes:state.notes,
     fetchingNote:state.fetchingNote,
+    targetNote:'',
+    deletedNote:state.deletedNote,
+    newNote:state.newNote,
 })
   
 export default connect(
     mapStateToProps, 
-    { }
+    { getNotes }
 )(Notes);
