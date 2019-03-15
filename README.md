@@ -68,14 +68,14 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 ## Extra Features:
 
-- [ X ] Re-factor your code to include redux for your state-management
-- [ ] Search functionality
-- [ ] Markdown support in notes
-- [ ] Sorting options in the list view
-- [ ] Create and display tags that can be added to notes
-- [ ] Drag sorting in the list view
-- [ ] Add the ability to have checklists within the note view
-- [ ] Export all notes to a CSV
-- [ ] Create a login system around the MVP
+[ X ] Re-factor your code to include redux for your state-management
+[ ] Search functionality
+[ X ] Markdown support in notes
+[ ] Sorting options in the list view
+[ - ] Create and display tags that can be added to notes
+[ ] Drag sorting in the list view
+[ ] Add the ability to have checklists within the note view
+[ ] Export all notes to a CSV
+[ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.

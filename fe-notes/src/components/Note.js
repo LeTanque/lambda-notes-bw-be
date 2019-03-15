@@ -1,6 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+
+
+
+
+
+    
+
+
 
 import { targetNoteSet } from '../stateTree/actions';
 
@@ -9,7 +18,7 @@ import { targetNoteSet } from '../stateTree/actions';
 class Note extends Component {
 
     render() {
-        const tag = this.props.note.tags.map(tag => tag)
+        // const tag = this.props.note.tags.map(tag => tag)
 
         return (
             <Fragment>
@@ -24,10 +33,10 @@ class Note extends Component {
                     
                         <div className='note'>
                             <h5>{this.props.note.title}</h5>
-                            <p>
-                                {this.props.note.textBody}<br />
-                                {tag}
-                            </p>
+                            <br />
+                            <ReactMarkdown source={this.props.note.textBody} />
+                            <br />
+                            {/* {tag} */}
                         </div>
                         
                     </section>

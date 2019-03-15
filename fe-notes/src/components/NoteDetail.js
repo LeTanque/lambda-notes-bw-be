@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 
 import { noteDetail, deleteNote, updateNoteSet } from '../stateTree/actions';
 
@@ -43,9 +44,9 @@ class NoteDetail extends Component {
                     <section className='note-detail-card'>
                         <div className='note-detail'>
                             <h3>{this.props.targetNote.title}</h3>
-                            <p>
-                                {this.props.targetNote.textBody}<br />
-                            </p>
+                            <br />
+                            <ReactMarkdown source={this.props.targetNote.textBody} />
+                            <br />
                         </div>
                         <div className='note-detail-buttons'>    
 
