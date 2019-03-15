@@ -25,6 +25,7 @@ class Note extends Component {
                     
                         <div className='note'>
                             <h5>{this.props.note.title}</h5>
+                            <hr />
                             <Fragment>
                                 <ReactMarkdown 
                                     source={this.props.note.textBody} 

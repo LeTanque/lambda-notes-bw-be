@@ -1,8 +1,5 @@
-
-
 .note-gallery {
     background-color: @off-white;
-    // display: grid;
     margin-top: 20px;
     .note-card {
         background-color: @white;
@@ -24,18 +21,24 @@
             width: 90%;
         }
         .note {
+            hr {
+                width: 100%;
+                color: @light;
+                margin: 10px 0;
+            }
             .note-fade {
                 color: @gray*1.2;
                 margin-top: 10px;
                 position: relative;
-                max-height: 8rem;
+                max-height: 11.2rem;
                 overflow: hidden;
+                white-space: pre-line;
                 &:after {
                     content: "";
                     position: absolute;
                     bottom: 0;
                     width: 100%;
-                    height: 3.2rem;
+                    height: 1.8rem;
                     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
                 }
             }   

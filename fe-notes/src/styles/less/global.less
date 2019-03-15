@@ -39,9 +39,17 @@ hr {
 
 .italic { font-style: italic; }
 strong { font-weight: bolder; }
-code { font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+code { 
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; 
+  background-color: @dark-shade-color; 
+  color: @white;
+  padding: 3px 5px;
+  margin: 10px;
+  display: block; 
+}
 .centered { float: none; margin: 0 auto; }
 .display-none { display: none; }
+em { text-decoration: underline; }
 
 // Cool forms and buttons from Mr. Dustin
 form {

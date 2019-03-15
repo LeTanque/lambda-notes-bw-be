@@ -8140,6 +8140,13 @@ react-app-polyfill@^0.2.2:
     raf "3.4.1"
     whatwg-fetch "3.0.0"
 
+react-clamp-lines@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-clamp-lines/-/react-clamp-lines-2.2.0.tgz#c14b7f6d8b6f31e5fd7182a3f1b2e9daae1e998a"
+  integrity sha512-yvgnU0Y6H9i3jomlyx8ZE0GeKxAWJnx/bNnagVP1MW45wI+dgx9I+VtDmAetbGsCj91kaO/esCW4RpjuCCdxEA==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-dev-utils@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-8.0.0.tgz#7c5b227a45a32ea8ff7fbc318f336cf9e2c6e34c"
