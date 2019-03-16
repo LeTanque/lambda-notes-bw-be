@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { addNote, updateNote } from '../stateTree/actions';
 
-
 // const KeyCodes = {comma: 188,enter: 13,};
 // const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
@@ -14,10 +13,10 @@ class NoteForm extends Component {
         this.state = {
             title:'',
             textBody:'',
-            tags:[ // There doesn't exist a way to send tags to the server through the API, afaik
-                { id: "Thailand", text: "Thailand" }, // But the functionality exists here, at least in part
-                { id: "India", text: "India" }
-            ],
+            // tags:[ // There doesn't exist a way to send tags to the server through the API, afaik
+            //     { id: "Thailand", text: "Thailand" }, // But the functionality exists here, at least in part
+            //     { id: "India", text: "India" },
+            // ],
         }
     }
 
@@ -62,10 +61,8 @@ class NoteForm extends Component {
     handleTagDrag(tag, currPos, newPos) {
         const tags = [...this.state.tags];
         const newTags = tags.slice();
- 
         newTags.splice(currPos, 1);
-        newTags.splice(newPos, 0, tag);
- 
+        newTags.splice(newPos, 0, tag); 
         this.setState({ 
             tags: newTags 
         });

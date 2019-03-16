@@ -602,6 +602,9 @@ button {
 .welcome h3 {
   color: #575757;
 }
+.welcome p {
+  margin-top: 20px;
+}
 .note-gallery {
   background-color: #f0f0f0;
   margin-top: 20px;

@@ -14,7 +14,6 @@ import {
   UPDATE_NOTE_SUCCESS,
   UPDATE_NOTE_FAIL,
 } from '../actions';
-
   
 const initialState = {
   notes: [],
@@ -33,8 +32,6 @@ const initialState = {
   error: null,
 }
 
-  
-  
 const rootReducer = (state=initialState, action) => {
   switch (action.type) {
     case GET_NOTES_START:
@@ -140,13 +137,9 @@ const rootReducer = (state=initialState, action) => {
         editingNote:false,
         error:action.payload,
       }
-
     default:
       return state;
   }
 }
-  
 
 export default rootReducer
-
-

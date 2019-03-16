@@ -48,10 +48,8 @@ class Notes extends Component {
     
                 </section>            
             </Fragment>
-        )
-        
+        )   
     }
-    
 }
 
 const mapStateToProps = state => ({
@@ -61,7 +59,7 @@ const mapStateToProps = state => ({
     deletedNote:state.deletedNote,
     newNote:state.newNote,
 })
-  
+
 export default connect(
     mapStateToProps, 
     { getNotes }

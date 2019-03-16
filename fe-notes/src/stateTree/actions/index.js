@@ -21,7 +21,6 @@ export const UPDATE_NOTE_SUCCESS = 'UPDATE_NOTE_SUCCESS';
 export const UPDATE_NOTE_FAIL = 'UPDATE_NOTE_FAIL';
 
 
-
 export const getNotes = () => dispatch => {
   dispatch({
     type: GET_NOTES_START
@@ -89,8 +88,6 @@ export const targetNoteSet = (noteObject) => {
   }
 }
 
-
-
 export const noteDetail = (noteID) => dispatch => {
   axios
     .get('https://fe-notes.herokuapp.com/note/get/'+noteID)
@@ -133,5 +130,3 @@ export const updateNote = (noteID, noteObject, history) => dispatch => {
       })
     })
 }
-
-
