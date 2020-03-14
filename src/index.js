@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import './styles/css/index.css';
+import './styles/base.scss';
 
 import rootReducer from './stateTree/reducers';
 import App from './components/App';
@@ -19,9 +19,9 @@ const rootElement = document.getElementById('root');
 
 
 ReactDOM.render(
-<Provider store={store} >
-    <App  />
-</Provider>, 
+    <Provider store={store} >
+        <App  />
+    </Provider>, 
 rootElement);
 
 // I modified the build command in package.json to redirect 404's to index.html

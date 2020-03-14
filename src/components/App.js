@@ -72,10 +72,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  notes:state.notes,
+  notes: state.notes,
 })
 
-export default connect(
-  mapStateToProps, 
-  {  }
-)(App);
+export default connect(mapStateToProps)(App);

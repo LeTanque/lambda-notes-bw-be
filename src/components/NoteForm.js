@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-// import { WithContext as ReactTags } from 'react-tag-input';
 
 import { addNote, updateNote } from '../stateTree/actions';
 
@@ -12,11 +11,7 @@ class NoteForm extends Component {
         super(props);
         this.state = {
             title:'',
-            textBody:'',
-            // tags:[ // There doesn't exist a way to send tags to the server through the API, afaik
-            //     { id: "Thailand", text: "Thailand" }, // But the functionality exists here, at least in part
-            //     { id: "India", text: "India" },
-            // ],
+            textBody:''
         }
     }
 
@@ -26,8 +21,7 @@ class NoteForm extends Component {
                 title:this.props.targetNote.title,
                 textBody:this.props.targetNote.textBody,
             })
-        } else {
-        }
+        } 
     }
 
     pushNote = event => { // Depending on editingNote state, either updateNote or addNote
@@ -96,13 +90,6 @@ class NoteForm extends Component {
                             value={this.state.title}
                             onChange={this.handleInputChange}
                         />
-                        {/* <ReactTags 
-                            tags={this.state.tags}
-                            delimiters={delimiters} 
-                            handleDelete={this.handleTagDelete}
-                            handleAddition={this.handleTagAddition}
-                            handleDrag={this.handleTagDrag}
-                        /> */}
                         <textarea 
                             placeholder='Note Content...'
                             name='textBody'
@@ -121,9 +108,9 @@ class NoteForm extends Component {
 
 
 const mapStateToProps = state => ({
-    targetNote:state.targetNote,
-    newNote:state.newNote,
-    editingNote:state.editingNote,
+    targetNote: state.targetNote,
+    newNote: state.newNote,
+    editingNote: state.editingNote,
 })
   
 export default connect(

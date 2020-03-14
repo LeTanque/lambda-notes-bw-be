@@ -17,18 +17,18 @@ import {
   
 const initialState = {
   notes: [],
-  fetchingNote:false,
-  editingNote:false,
-  creatingNote:false,
+  fetchingNote: false,
+  editingNote: false,
+  creatingNote: false,
   newNote: false,
-  deletedNote:'',
-  targetNote:{
+  deletedNote: '',
+  targetNote: {
     tags:[],
     textBody:'',
     title:'',
     _id:'',
   },
-  targetNoteID:'',
+  targetNoteID: '',
   error: null,
 }
 

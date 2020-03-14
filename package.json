@@ -1,9 +1,16 @@
 {
   "name": "lambda-notes",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "knex": "^0.20.11",
+    "node-sass": "^4.13.1",
     "react": "^16.8.4",
     "react-clamp-lines": "^2.2.0",
     "react-dnd": "^7.3.2",
@@ -18,13 +25,19 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.1.1",
     "use-reducer-logger": "^1.0.0"
   },
   "scripts": {
+    "monolith": "node ./api/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build && cp build/index.html build/404.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.13.6"
   },
   "eslintConfig": {
     "extends": "react-app"
