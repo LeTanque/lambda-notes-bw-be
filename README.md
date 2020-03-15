@@ -16,3 +16,4 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [ ] Wire up your static React App to our Notes API.
 - [ ] We want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
 
+"proxy": "http://localhost:3333",

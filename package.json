@@ -35,14 +35,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "now-build": "knex migrate:latest & npm run prod-server && react-scripts build",
+    "now-build": "npm run prod-server",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prod-server": "node ./api/server.js",
     "local-server": "nodemon ./api/server.js",
     "minimono": "concurrently -p \". {name} >>> \" -n \"REACT,EXPRESS\" -c \"bgMagenta.bold,bgGreen.bold\" \"npm run start\" \"npm run local-server\""
   },
-  "proxy": "http://localhost:3333",
   "engines": {
     "node": "10.15.3",
     "npm": "6.13.6"
