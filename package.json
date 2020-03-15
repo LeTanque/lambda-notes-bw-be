@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "concurrently  \"react-scripts build\" \"npm run prod-server\"  ",
+    "build": "knex migrate:latest & npm run prod-server && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prod-server": "node ./api/server.js",
