@@ -4,14 +4,14 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './src/data/lambda-notes.sqlite3',
+      filename: './api/data/lambda-notes.sqlite3',
     },
     migrations: {
-      directory: './src/data/migrations',
+      directory: './api/data/migrations',
       tableName: 'knex_migrations',
     },
     seeds: {
-        directory: './src/data/seeds',
+        directory: './api/data/seeds',
     },
     useNullAsDefault: true,
   },
@@ -19,14 +19,14 @@ module.exports = {
   production: {
     client: 'sqlite3',
     connection: {
-      filename: './src/data/lambda-notes.sqlite3',
+      filename: './api/data/lambda-notes.sqlite3',
     },
     migrations: {
-      directory: './src/data/migrations',
+      directory: './api/data/migrations',
       tableName: 'knex_migrations',
     },
     seeds: {
-        directory: './src/data/seeds',
+        directory: './api/data/seeds',
     },
     useNullAsDefault: true,
   }

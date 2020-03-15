@@ -27,7 +27,7 @@ class NoteForm extends Component {
     pushNote = event => { // Depending on editingNote state, either updateNote or addNote
         event.preventDefault();
         if (this.props.editingNote) {
-            this.props.updateNote(this.props.targetNote._id, this.state, this.props.history);
+            this.props.updateNote(this.props.targetNote.id, this.state, this.props.history);
         } else {
             this.props.addNote(this.state, this.props.history);
         }
@@ -63,7 +63,6 @@ class NoteForm extends Component {
     }
 
     render() {
-
         // Change header and button to reflect editingNote state
         let header;
         let button;
@@ -74,8 +73,6 @@ class NoteForm extends Component {
             header = 'Create New Note:'
             button = 'Save';
         }
-
-        console.log('NoteForm props:  ', this.props)
 
         return (
             <Fragment>

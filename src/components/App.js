@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import { } from '../stateTree/actions';
+// import { } from '../stateTree/actions';
 
 import Sidebar from './Sidebar';
 import Notes from './Notes';

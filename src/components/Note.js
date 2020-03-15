@@ -13,13 +13,11 @@ class Note extends Component {
 
     render() {
         return (
-            <Fragment>
+            <Fragment key={this.props.note.id}>
 
-                <Link    
-                    onClick={(event) => {
-                        this.props.targetNoteSet(event, this.props.note);
-                    }}
-                    to={`/note/${this.props.note._id}`}
+                <Link
+                    onClick={(event) => this.props.targetNoteSet(event, this.props.note)}
+                    to={`/note/${this.props.note.id}`}
                 >
                     <section className='note-card'>
                     
@@ -27,18 +25,10 @@ class Note extends Component {
                             <h5>{this.props.note.title}</h5>
                             <hr />
                             <Fragment>
-                                {/* <ClampLines
-                                    text={this.props.note.textBody}
-                                    lines={4}
-                                    ellipsis="..."
-                                    className="note-clamp"
-                                /> */}
                                 <ReactMarkdown 
                                     source={this.props.note.textBody} 
                                     className='note-fade'
                                 />
-
-                                
                             </Fragment>
                         </div>
                         

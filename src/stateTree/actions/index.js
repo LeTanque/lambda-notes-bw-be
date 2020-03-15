@@ -26,7 +26,7 @@ export const getNotes = () => dispatch => {
     type: GET_NOTES_START
   })
   axios
-    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('/api/notes/all')
     .then(response => {
       dispatch({
         type: GET_NOTES_SUCCESS,
@@ -46,25 +46,26 @@ export const addNote = (noteObject, history) => dispatch => {
     type: ADD_NOTE_START
   })
   axios
-    .post('https://fe-notes.herokuapp.com/note/create', noteObject, { headers: { 'Content-Type': 'application/json' }})
+    .post('/api/notes/create', noteObject, { headers: { 'Content-Type': 'application/json' }})
     .then(response => {
       dispatch({
-        type:ADD_NOTE_SUCCESS,
-        payload:response.data
+        type: ADD_NOTE_SUCCESS,
+        payload: response.data
       })
       history.push('/');
     })
     .catch(error => {
       dispatch({
-        type:ADD_NOTE_FAIL,
-        payload:error.message
+        type: ADD_NOTE_FAIL,
+        payload: error.message
       })
     })
 }
 
 export const deleteNote = (id, history) => dispatch => {
+  console.log('id --> ', id);
   axios
-    .delete('https://fe-notes.herokuapp.com/note/delete/'+id)
+    .delete('/api/notes/delete/'+id)
     .then(response => {
       dispatch({
         type: DELETE_NOTE_SUCCESS,
@@ -90,17 +91,17 @@ export const targetNoteSet = (noteObject) => {
 
 export const noteDetail = (noteID) => dispatch => {
   axios
-    .get('https://fe-notes.herokuapp.com/note/get/'+noteID)
+    .get('/api/notes/'+noteID)
     .then(response => {
       dispatch({
-        type:NOTE_DETAIL_SUCCESS,
-        payload:response.data,
+        type: NOTE_DETAIL_SUCCESS,
+        payload: response.data[0],
       })
     })
     .catch(error => {
       dispatch({
-        type:NOTE_DETAIL_FAIL,
-        payload:error.message,
+        type: NOTE_DETAIL_FAIL,
+        payload: error.message,
       })
     })
 }
@@ -108,25 +109,25 @@ export const noteDetail = (noteID) => dispatch => {
 export const updateNoteSet = (noteObject, history) => {
   history.push('/update-note');
   return {
-      type:UPDATE_NOTE_START,
-      payload:noteObject,
+      type: UPDATE_NOTE_START,
+      payload: noteObject,
   }
 }
 
 export const updateNote = (noteID, noteObject, history) => dispatch => {
   axios
-    .put('https://fe-notes.herokuapp.com/note/edit/'+noteID, noteObject, { headers: { 'Content-Type': 'application/json' }})
+    .put('/api/notes/edit/'+noteID, noteObject, { headers: { 'Content-Type': 'application/json' }})
     .then(response => {
       dispatch({
-        type:UPDATE_NOTE_SUCCESS,
-        payload:response.data
+        type: UPDATE_NOTE_SUCCESS,
+        payload: response.data
       })
       history.push('/')
     })
     .catch(error=>{
       dispatch({
-        type:UPDATE_NOTE_FAIL,
-        payload:error.message
+        type: UPDATE_NOTE_FAIL,
+        payload: error.message
       })
     })
 }

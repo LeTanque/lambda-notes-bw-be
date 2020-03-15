@@ -13,6 +13,7 @@ class Modal extends Component {
             return null;
         }
 
+        console.log('this.props --> ', this.props);
         return (
             <div className="modal-backdrop" >
                 <div className="modal-style" >
@@ -36,8 +37,8 @@ class Modal extends Component {
 }
 
 const mapStateToProps = state => ({
-    targetNote:state.targetNote,
-    targetNoteID:state.targetNoteID,
+    targetNote: state.targetNote,
+    targetNoteID: state.targetNoteID,
 })
   
 export default connect(
