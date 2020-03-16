@@ -18,8 +18,8 @@
     "sqlite3": "^4.1.1"
   },
   "scripts": {
-    "start": "nodemon ./api/server.js",
-    "server": "node ./api/server.js"
+    "server": "nodemon ./api/server.js",
+    "start": "node ./api/server.js"
   },
   "engines": {
     "node": "10.15.3",
