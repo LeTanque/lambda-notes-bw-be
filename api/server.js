@@ -7,7 +7,7 @@ const cors = require("cors");
 
 // creates the server
 const server = express();
-const envPort = process.env.SERVER_PORT || 3333; 
+const envPort = process.env.PORT || 3333; 
 
 // Connect the pieces
 server.use(helmet());
