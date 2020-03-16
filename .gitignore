@@ -5,3 +5,6 @@ node_modules/*
 
 .env
 .env*
+
+*.sqlite3
+api/data/lambda-notes.sqlite3
